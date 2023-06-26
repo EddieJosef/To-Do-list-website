@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>TO DO LIST</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="static/assets/js/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="static/assets/css/main.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="static/assets/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="static/assets/css/ie8.css" /><![endif]-->
+		<noscript><link rel="stylesheet" href="static/assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-loading">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<section id="main">
+						<header>
+<!--							<span class="avatar"><img src="static/images/avatar.jpg" alt="" /></span>-->
+							<h1>TO DO</h1>
+							<p>Track your progress with us</p>
+						</header>
+
+						<footer>
+							<form action="/" method="post">
+									<label>Type your to do</label>
+									<input type="text" placeholder="To Do" name="to_do"><br>
+									<button type="submit" name="add">SUBMIT</button><br><br>
+									{% if to_dos != False%}
+										{% for do in to_dos[1::] %}
+
+											<input type="checkbox" align="left" id="{{to_dos.index(do)}}" name="{{to_dos.index(do)}}" value="{{to_dos.index(do)}}">
+											<label for={{to_dos.index(do)}} > {{do}}</label><br>
+
+										{%endfor%}
+									{% endif %}
+
+							</form>
+						</footer>
+					</section>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<ul class="copyright">
+							<li>Eid Josef</li>
+						</ul>
+						<ul class="icons">
+
+								<li><a href="mailto:edjosef@gmail.com" class="fa-envelope">Gmail</a></li>
+								<li><a href="https://www.instagram.com/eddiejosef96/" class="fa-instagram">Instagram</a></li>
+								<li><a href="https://www.facebook.com/edjosef96" class="fa-facebook">LinkedIn</a></li>
+							</ul>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<!--[if lte IE 8]><script src="static/assets/js/respond.min.js"></script><![endif]-->
+			<script>
+				if ('addEventListener' in window) {
+					window.addEventListener('load', function() { document.body.className = document.body.className.replace(/\bis-loading\b/, ''); });
+					document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
+				}
+			</script>
+
+	</body>
+</html>
